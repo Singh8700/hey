@@ -45,10 +45,6 @@ const NavbarSection = () => {
     
 }
 
-
-
-export default NavbarSection
-
 const NavSection = styled.nav`
     display: flex;
     justify-content: center;
@@ -223,3 +219,6 @@ const NavSection = styled.nav`
 }
 
 `
+
+
+export default NavbarSection
