@@ -24,26 +24,32 @@ const NavbarSection = () => {
 
     return (
         <NavSection>
-            <ul>
+            <ListContent>
                 {navText.map((text, index) => (
-                    <li key={index}>
+                    <Li key={index}>
+                        <Eleme>
                         <Link href={text.path}>
-                            <span 
+                        <span 
                             className={`
                             ${pathname === text.path ? "active" : ""}
-                        ${"icon"}`}>{text.icon}</span>
-                            <span 
+                        icon`}>{text.icon}</span>
+                        <span 
                             className={`
                             ${pathname === text.path ? "textActive" : ""}  
-                        ${"text"}`}>{text.title}</span>
+                        text`}>{text.title}</span>
                         </Link>
-                    </li>
+                        </Eleme>
+                    </Li>
                 ))}
-            </ul>
+            </ListContent>
         </NavSection>
     )
     
 }
+
+
+
+export default NavbarSection
 
 const NavSection = styled.nav`
     display: flex;
@@ -62,163 +68,156 @@ const NavSection = styled.nav`
     backdrop-filter: blur(10px);
     color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    
-    ul {
+    @media(max-width:780px){
+    width:350px;
+    padding: 0 10px;
+    }
+`
+const ListContent = styled.ul`
         display: flex;
         justify-content: space-around;
         align-items: center;
         gap: 20px;
         width: 100%;
         text-transform: capitalize;
-
-        li {
+    `
+const Li = styled.li`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    // background: red;
+    position: relative;
+    // overflow-x: hidden;
+    transition: all 0.3s ease-in-out;
+    a{
+        width: 100%;
+        position: relative;
+        z-index: 1;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: auto;
+        .icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            color: var(--foreground);
+            text-align: center;
+            position: relative;
+            z-index: 2;
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 20%;
-            // background: red;
+            text-align: center;
+            padding-bottom: 20px;
+
+            svg {
+                position: relative;
+                z-index: 2;
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                width: 75%;
+                height: 75%;
+                top: 50%;
+                left: 50%;
+                opacity: 0;
+                box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
+                border-radius: 50%;
+                background-color: #fff;
+                z-index: 1;
+                transform: translate(-50%, -50%) scale(1);
+                transition: all 0.3s ease-in-out;
+            }
+        }
+
+        .active {
+            width: 45px;
+            height: 45px;
+            color: var(--background);
+            opacity: 1;
+            background: rgba(${()=>  Math.random() * 255},${()=>  Math.random() * 255},${()=>  Math.random() * 255},${()=>  Math.random() * 0.9});
+            color: balck;
+            display: flex;
+            font-size: 25px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-bottom: 0;
+            overflow: hidden;
             position: relative;
-            // overflow-x: hidden;
+            z-index: 9;
+            box-shadow: 0 8px 10px rgba(0, 0, 0, 0.5);
+            transform: translate(0px, -30px);
+            transition: transform 0.3s linear;
+
+            &::after {
+                opacity: 1;
+            }
+        }
+
+        .text {
+            color: var(--foreground);
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-top: -15px;
+            transform: translate(0px, 20px);
+
+            &::after {
+                content: "";
+                position: absolute;
+                width: 8px;
+                height: 8px;
+                bottom: -40%;
+                border-radius: 50%;
+                // background: red;
+                z-index: 0;
+                left: 40%;
+                transform: scale(0);
+                // transition: all 0.3s ease-in-out;
+            }
+        }
+
+        .textActive {
+            transform: translate(0px, -10px);
+            position: relative;
+            font-weight: 700;
+            font-size: 20px;
             transition: all 0.3s ease-in-out;
 
-            a {
-                width: 100%;
-                position: relative;
-                z-index: 1;
-                bottom: 0;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: column;
-                margin: auto;
-
-                .icon {
-                    width: 30px;
-                    height: 30px;
-                    border-radius: 50%;
-                    color: var(--foreground);
-                    text-align: center;
-                    position: relative;
-                    z-index: 2;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    text-align: center;
-                    padding-bottom: 20px;
-
-                    svg {
-                        position: relative;
-                        z-index: 2;
-                    }
-
-                    &::after {
-                        content: "";
-                        position: absolute;
-                        width: 75%;
-                        height: 75%;
-                        top: 50%;
-                        left: 50%;
-                        opacity: 0;
-                        box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
-                        border-radius: 50%;
-                        background-color: #fff;
-                        z-index: 1;
-                        transform: translate(-50%, -50%) scale(1);
-                        transition: all 0.3s ease-in-out;
-                    }
-                }
-
-                .active {
-                    width: 45px;
-                    height: 45px;
-                    color: var(--background);
-                    opacity: 1;
-                    background: rgba(${()=>  Math.random() * 255},${()=>  Math.random() * 255},${()=>  Math.random() * 255},${()=>  Math.random() * 0.9});
-                    color: balck;
-                    display: flex;
-                    font-size: 25px;
-                    justify-content: center;
-                    align-items: center;
-                    text-align: center;
-                    padding-bottom: 0;
-                    overflow: hidden;
-                    position: relative;
-                    z-index: 9;
-                    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.5);
-                    transform: translate(0px, -30px);
-                    transition: transform 0.3s linear;
-
-                    &::after {
-                        opacity: 1;
-                    }
-                }
-
-                .text {
-                    color: var(--foreground);
-                    position: absolute;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    text-align: center;
-                    margin-top: -15px;
-                    transform: translate(0px, 20px);
-
-                    &::after {
-                        content: "";
-                        position: absolute;
-                        width: 8px;
-                        height: 8px;
-                        bottom: -40%;
-                        border-radius: 50%;
-                        // background: red;
-                        z-index: 0;
-                        left: 40%;
-                        transform: scale(0);
-                        // transition: all 0.3s ease-in-out;
-                    }
-                }
-
-                .textActive {
-                    transform: translate(0px, -10px);
-                    position: relative;
-                    font-weight: 700;
-                    font-size: 20px;
-                    transition: all 0.3s ease-in-out;
-
-                    &::after {
-                        content: "";
-                        position: absolute;
-                        width: 5px;
-                        height: 6px;
-                        bottom: -40%;
-                        border-radius: 50%;
-                        background: green;
-                        z-index: 0;
-                        left: 40%;
-                        box-shadow: 1px 1px 5px rgba(0, 0, 0, 1);
-                        transform: scale(1);
-                        transition: transform 0.3s ease-in-out;
-                    }
-                }
+            &::after {
+                content: "";
+                position: absolute;
+                width: 5px;
+                height: 6px;
+                bottom: -40%;
+                border-radius: 50%;
+                background: green;
+                z-index: 0;
+                left: 40%;
+                box-shadow: 1px 1px 5px rgba(0, 0, 0, 1);
+                transform: scale(1);
+                transition: transform 0.3s ease-in-out;
             }
         }
     }
-
-@media(max-width: 620px) {
-    .navSection {
-    backgorund:red;
-        width: 200px;
-        padding: 0px 0px;
-    }
-}
-@media screen and (max-width: 668px) {
-    .navSection {
-        width: 350px;
-        padding: 0px 10px;
-    }
-}
-
 `
-
-
-export default NavbarSection
+const Eleme = styled.a`
+        position: relative;
+        z-index: 1;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: auto;
+        
+    }`
