@@ -42,12 +42,12 @@ const Wrapper = styled.div`
   width: 120vw;
   height: 100vh;
   overflow: hidden;
-  position: fixed;
-  z-index:100;
+  position: absolute;
+  top:0;
   display: flex;
   overflow-x: hidden;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 `;
 
