@@ -6,7 +6,7 @@ import { AiFillHome } from 'react-icons/ai';
 import { BsFillPersonFill } from 'react-icons/bs';
 import { SiTheodinproject } from "react-icons/si";
 import { IoMdContact } from 'react-icons/io';
-
+import {motion} from 'framer-motion';
 
 
 
@@ -23,7 +23,11 @@ const NavbarSection = () => {
    
 
     return (
-        <NavSection>
+       <motion.div 
+       initial={{opacity:0}}
+       animate={{opacity:1}}
+       >
+         <NavSection>
             <ListContent>
                 {navText.map((text, index) => (
                     <Li key={index}>
@@ -43,6 +47,7 @@ const NavbarSection = () => {
                 ))}
             </ListContent>
         </NavSection>
+       </motion.div>
     )
     
 }

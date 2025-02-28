@@ -39,11 +39,11 @@ const Page = () => {
 export default Page;
 
 const Wrapper = styled.div`
-  width: 100vw;
+  width: 120vw;
   height: 100vh;
   overflow: hidden;
   position: fixed;
-  z-index:-99;
+  z-index:100;
   display: flex;
   overflow-x: hidden;
   flex-wrap: wrap;
