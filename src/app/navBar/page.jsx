@@ -62,7 +62,7 @@ const NavSection = styled.nav`
     align-items: center;
     position: fixed;
     bottom: 25px;
-    z-index: 100;
+    z-index: 999;
     left: 50%;
     backdrop-filter: blur(10px);
     transform: translate(-50%, -50%);
@@ -98,7 +98,7 @@ const Li = styled.li`
     a{
         width: 100%;
         position: relative;
-        z-index: 1;
+        z-index: 99;
         bottom: 0;
         display: flex;
         justify-content: center;

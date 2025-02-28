@@ -44,6 +44,7 @@ const page = () => {
           <p>Passionate about web design, branding, and UI/UX – let’s create something
             <span> amazing together!</span>
           </p>
+          <span>
           <button>
           Get in
           <span> Touch</span>
@@ -52,6 +53,7 @@ const page = () => {
           View My
           <span> Work</span>
           </button>
+          </span>
         </LandingText>
         <LandingImage>
           <img src={`./imgs/pic0${randomePic()}.png`} alt={`./imgs/pic0${randomePic()}.png`} />
@@ -110,12 +112,17 @@ const LandingText = styled.div`
 width:50%;
 padding:2rem 1rem 0;
 transition: all 0.3s ease;
+display:flex;
+flex-direction:column; 
+justify-content:center;
+align-items:flex-start;
   h1{
   font-size:5rem;
   padding:0rem 1rem 0;
   line-height:1;
   font-family:'time-new-roman';
   span{
+    font-weight:bold;
      color:rgb(${()=>Math.random() * 255},${()=>Math.random() * 255},${()=>Math.random() * 255});
   }
   }
@@ -123,6 +130,7 @@ transition: all 0.3s ease;
     padding:0rem 2rem 0;
     font-size:1.2rem;
   span{
+  font-weight:bold;
     color:rgba(${()=>Math.random() * 255},${()=>Math.random() * 255},${()=>Math.random() * 255},0.5);
   }
   }
@@ -134,7 +142,7 @@ transition: all 0.3s ease;
     padding:0.5rem;
     border-radius:5px;
     font-weight:bold;
-    margin:2rem 0rem 0rem 8rem;
+    margin:1rem 0rem 0rem 10rem;
     transition: all 0.3s ease;
     span{
       color:rgba(${()=>Math.random() * 255},${()=>Math.random() * 255},${()=>Math.random() * 255},0.5);
