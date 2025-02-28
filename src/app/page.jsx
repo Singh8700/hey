@@ -145,6 +145,7 @@ align-items:flex-start;
     margin:1rem 0rem 0rem 10rem;
     transition: all 0.3s ease;
     span{
+    font-weight:bold;
       color:rgba(${()=>Math.random() * 255},${()=>Math.random() * 255},${()=>Math.random() * 255},0.5);
     }
   }
@@ -162,7 +163,6 @@ align-items:flex-start;
       font-size:1rem;
       }
     button{
-
       margin:2rem 0rem 0rem 2rem;
     }
   }
