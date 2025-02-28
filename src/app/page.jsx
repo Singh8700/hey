@@ -54,7 +54,7 @@ const page = () => {
           </button>
         </LandingText>
         <LandingImage>
-          <img src={`/imgs/pic0${randomePic()}.png`} alt={`/imgs/pic0${randomePic()}.png`} />
+          <img src={`./imgs/pic0${randomePic()}.png`} alt={`./imgs/pic0${randomePic()}.png`} />
           <span></span>
         </LandingImage>
       </LandingContent>
