@@ -2,7 +2,7 @@
 import React from 'react'
 import styled from "styled-components"
 import {motion} from 'framer-motion'
-
+import AboutPage from './about/aboutPage'
 
 const page = () => {
 
@@ -15,28 +15,21 @@ const page = () => {
   return (
    <Wrapper>
     {/* heading content */}
-    <motion.div
-    initial={{opacity:0}}
-    animate={{opacity:1}}
-    transition={{duration:1}}
-    >
-    <Heading>
-      It's Me
-    </Heading>
-    </motion.div>
 
     {/* landing content  */}
     <motion.div
-    initial={{opacity:0}}
-    animate={{opacity:1}}
+    initial={{opacity:0,scale:0.5}}
+    animate={{opacity:1,scale:1}}
     transition={{duration:1}}
+    whileInView={{scale:1}}
     >
       <LandingContent>
         <LandingText>
           <motion.h1
-          initial={{opacity:0}}
-          animate={{opacity:1}}
+          initial={{opacity:0,scale:0.5}}
+          animate={{opacity:1,scale:1}}
           transition={{duration:1}}
+          whileInView={{scale:1}}
           >
             Transforming Ideas into Stunning
             <span> Digital Realities</span>
@@ -56,10 +49,23 @@ const page = () => {
           </span>
         </LandingText>
         <LandingImage>
-          <img src={`./imgs/pic0${randomePic()}.png`} alt={`./imgs/pic0${randomePic()}.png`} />
+          <motion.img
+          initial={{opacity:0,scale:0.5}}
+          animate={{opacity:1,scale:1}}
+          transition={{duration:1}}
+          whileInView={{scale:1}}
+          src={`./imgs/pic0${randomePic()}.png`} alt={`./imgs/pic0${randomePic()}.png`} />
           <span></span>
         </LandingImage>
       </LandingContent>
+    </motion.div>
+    <motion.div 
+    initial={{opacity:0,x:-200}}
+    transition={{duration:1}}
+    animate={{opacity:1,x:0}}
+    whileInView={{opacity:1,x:0}}
+    >
+    <AboutPage/>
     </motion.div>
    </Wrapper>
   )
@@ -75,22 +81,6 @@ const Wrapper = styled.div`
   background:transparent;
 `
 
-const Heading = styled.h1`
-  width:100vw;
-  height:max-content;
-  font-size:3rem;
-  display:flex;
-  justify-content:flex-end;
-  align-items:center;
-  font-family: 'Times New Roman', Times, serif;
-  padding-right:50px;
-  padding-top:10px;
-  position:fixed;
-  top:0;
-  right:0;
-  z-index:999;
-  backdrop-filter:blur(5px);
-`
 
 const LandingContent = styled.div`
   width:100vw;
