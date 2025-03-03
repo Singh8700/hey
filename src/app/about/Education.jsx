@@ -1,9 +1,16 @@
 "use client"
-import React from 'react'
+
 import {motion} from "framer-motion"
+import { useEffect } from "react"
 import styled from "styled-components"
 
 const Education = () => {
+    const randomNumber = () =>{
+        return Math.floor(Math.random() * 2) + 1
+    }
+
+    // console.log(randomNumber(),"about imge")
+
     const education = [
         {
           year: "2017 - 2021",
@@ -11,7 +18,7 @@ const Education = () => {
           institution: "Delhi University",
           description: "B.A Programme",
           grade: "1st Division",
-          models: "./imgs/pic01.png"
+          models: `./imgs/pic0${randomNumber()}.png`
         },
         {
             year: "2018 - 2019",
@@ -19,7 +26,7 @@ const Education = () => {
             institution: "RIIT INFOTECH PVT. LTD.",
             description: "Computer Application",
             grade: "A Grade",
-            models: "./imgs/pic02.png"
+            models: `./imgs/pic0${randomNumber()}.png`
           },
         {
           year: "2017 - 2018",
@@ -27,7 +34,7 @@ const Education = () => {
           institution: "G.S.B.V. D-Block Janak Puri",
           description: "Arts with Eco",
           grade: "74%",
-          models: "./imgs/pic02.png"
+          models: `./imgs/pic0${randomNumber()}.png`
         },
         {
           year: "2015 - 2016",
@@ -35,7 +42,7 @@ const Education = () => {
           institution: "G.S.B.V. D-Block Janak Puri",
           description: "General Studies",
           grade: "6.6 CGPE",
-          models: "./imgs/pic03.png"
+          models: `./imgs/pic0${randomNumber()}.png`
         },
        
       ]
@@ -155,14 +162,17 @@ padding:15px;
 position:relative;
 background:rgba(0,0,0,0.2);
 border-radius:10px;
+overflow:visible;
 gap:10px;
 .itemContent{
-width:70%;
+width:80%;
 display:flex;
 flex-wrap:wrap;
 // background:red;
 justify-content:space-between;
 align-items:flex-start;
+position:relative;
+z-index:99;
 
 .itemYear{
 font-size:0.8rem;
@@ -187,6 +197,7 @@ position: relative;
 top:20%;
 border-radius:5px;
 text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.8);
+
 }
 h5{
 font-size:1rem;
@@ -204,22 +215,44 @@ p,.itemGrade{
     color:#fff;
     padding:5px;
     border-radius:5px;
-    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.8);}
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.8);
+    }
+    .itemGrade{
+        backdrop-filter:blur(5px);
+        }
 }
 .imgSection{
-width:30%;
+width:50%;
 height:100%;
 display:flex;
 justify-content:center;
 align-items:center;
-background:rgba(${()=>Math.random() * 255},${()=>Math.random() * 255},${()=>Math.random() * 255},0.2);
+position:absolute;
+top:0;
+right:0;
 border-radius:5px;
-overflow:hidden;}
+z-index:1;
+img{
+width:100%;
+height:100%;
+position:absolute;
+top:0;
+left:13%;
+z-index:99;
+object-fit:cover;
+}
+}
 }
 @media(max-width:990px){
   .educationContent{
+  width:100vw;
     .items{
       width:350px;
+      gap:20px;
+      .imgSection{
+      width:200px;
+      height:200px;
+      }
     }
   }
 }
@@ -227,8 +260,40 @@ overflow:hidden;}
   .educationContent{
     .items{
       width:100%;
+    //   background:pink;
+      gap:20px;
+      margin-top:20px;
+      .itemContent{
+          width:250px;
+      }
+      .imgSection{
+      width:225px;
+      height:225px;
+      top:10%;  
+      left:45%;
+      transform:translateY(-50%);}
     }
   }
 }
+  
+@media(max-width:440px){
+  .educationContent{
+  .items{
+//   background:blue;
+      .imgSection{
+          width:200px;
+          height:200px;
+      }
+  }}}
+@media(max-width:400px){
+  .educationContent{
+  .items{
+//   background:red;
+      .imgSection{
+          width:150px;
+          height:150px;
+          left:55%;
+      }
+  }}}
 
 `

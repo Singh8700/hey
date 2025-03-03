@@ -15,7 +15,7 @@
 }
 
 html,body {
-  width:100vw;
+  width: 100svw;
   overflow-x: hidden;
   color: var(--foreground);
   background: var(--background);

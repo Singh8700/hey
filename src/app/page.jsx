@@ -3,6 +3,7 @@ import React from 'react'
 import styled from "styled-components"
 import {motion} from 'framer-motion'
 import AboutPage from './about/aboutPage'
+import ProjectShowcase from './about/ProjectShow'
 
 const page = () => {
 
@@ -67,6 +68,7 @@ const page = () => {
     >
     <AboutPage/>
     </motion.div>
+    <ProjectShowcase showOnly={6}/>
    </Wrapper>
   )
 }
@@ -75,7 +77,6 @@ export default page
 
 const Wrapper = styled.div`
   width:100vw;
-  height:100vh;
   overflow-x:hidden;
   position:relative;
   background:transparent;
